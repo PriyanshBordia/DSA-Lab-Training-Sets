@@ -14,18 +14,18 @@ int main(void)
 	insertKey(12); 
 	insertKey(8); 
 	insertKey(60);
-
+	
 	printf("\n----------- INSERTIONS COMPLETED -------------\n"); 
 	
 	if (hasKey(17))
 		printf("Found key 17\n"); 
 	else
 		printf("Not Found key 17\n");
-	
+
 	printTree();
 	
 	printf("\n--------------- BEGIN DELETIONS ------------\n");
-    deleteKey(60);
+	deleteKey(60);
     deleteKey(53);
     deleteKey(17);
     
@@ -39,6 +39,6 @@ int main(void)
 	printf("\n------------ DELETIONS COMPLETED --------------\n"); 
 
 	printTree();
-	
+
 	return 0; 
 }

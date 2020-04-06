@@ -1,12 +1,9 @@
 #include "srchTree.h" 
-#include <assert.h> 
-#include <string.h>
 
 #define SCRN_WIDTH 100
 #define OFFSET 9
 
 struct node *theTree;
-
 int STEP;
 
 static struct node *makeNode(int key) 
@@ -36,7 +33,7 @@ static int find(int key, struct node *t)
 	if (t->key == key)
 		return 1;
 	
-	if (t->key > key)
+	if (key < t->key)
 		return find(key, t->left); 
 	else
 		return find(key, t->right);
@@ -49,22 +46,52 @@ int hasKey(int key)
 
 static struct node *insert(int key, struct node *tree) 
 {
-     struct node *t;
-	if (tree == NULL) 
+	if (tree == NULL)
 	{
-		t = makeNode(key);
-		
-		return t; 
+		struct node *t = makeNode(key);
+		// printf("%d\n", key);
+		assert (t != NULL);
+		return t;
 	}
 
-/* TASK 01
-    ONLY A SHORT CODE REMOVED
-*/
+	else 
+	{
+		if (key < tree->key)
+		{
+			tree->left = insert(key, tree->left);
+		}
+
+		else if (key > tree->key)
+		{
+			tree->right = insert(key, tree->right);
+		}
+
+		else 
+			return tree;
+	}
+
+	return tree;
 }
 
 void insertKey(int key) 
 {
 	theTree = insert(key, theTree);
+}
+
+int isLeaf(struct node *tree)
+{
+	if (tree->left == NULL && tree->right == NULL)
+		return 1;
+	else
+		return 0;
+}
+
+int hasOnechild(struct node *tree)
+{
+	if (tree->left == NULL || tree->right == NULL)
+		return 1;
+	else
+		return 0;
 }
 
 static int setNodeHeights(struct node *tree) 
@@ -74,11 +101,12 @@ static int setNodeHeights(struct node *tree)
 	if (tree == NULL) 
 		return 0;
 	
-	lh = setNodeHeights(tree->left)+1; 
-	rh = setNodeHeights(tree->right)+1; 
+	lh = setNodeHeights(tree->left) + 1; 
+	rh = setNodeHeights(tree->right) + 1; 
+	
 	tree->height = lh>rh?lh:rh;
 	
-		return tree->height;
+	return tree->height;
 }
 
 void setHeights() 
@@ -131,27 +159,55 @@ static struct node * deleteNode(int key, struct node *tree)
 	if (tree == NULL) 
 		return tree;
 	
-	if (tree->key > key) 
+	if (key < tree->key) 
 	{
 		tree->left = deleteNode(key, tree->left); 
 		return tree;
 	} 
 
-	else if (tree->key < key) 
+	else if (key > tree->key) 
 	{
 		tree->right = deleteNode(key, tree->right); 
 		return tree;
 	}
 
 /* The remaining case when node is deleted */
-	assert(tree->key == key);
+	else 
+	{
+		if (isLeaf(tree))
+		{
+			tmp = tree;
+			free(tmp);
+			return NULL;
+		}
 
-	/* TASK 03
-	    ABOUT 30 LINES OF CODE REMOVED
-	*/
-	
-	tree->key = graftReplacementKey(tree->left);
-    return tree;
+		else if (hasOnechild(tree))
+		{
+			if (tree->left != NULL)
+			{
+				tmp = tree;
+				tree = tree->left;			
+				free(tmp);
+				return tree;
+			}
+
+			else
+			{
+				tmp = tree;
+				tree = tree->right;			
+				free(tmp);
+				return tree;
+			}
+		}
+
+		else
+		{
+			replacementKey = graftReplacementKey(tree->left);
+			assert (replacementKey != key);
+			tree->key = replacementKey;
+		}
+	}
+	return tree;
 }
 
 void deleteKey(int key) 
@@ -167,7 +223,7 @@ static void printNode(struct node *tree, int spaces)
 		return; 
 	}
 	
-	while (spaces-->0) 
+	while (spaces-- > 0) 
 		printf(" ");
 	
 	printf("%d\n", tree->key); 
@@ -179,11 +235,14 @@ static void printWell(struct node *tree, int spaces)
 	{
 	    printNode(NULL, spaces);
 		return; 
-	}
+	}	
 	
-	/* TASK 02
-	     A SHORT SEQUENCE OF CODE REMOVED
-	*/
+	else
+	{
+		printWell(tree->right, spaces + STEP);
+		printNode(tree, spaces);
+		printWell(tree->left, spaces + STEP);	
+	}
 }
 
 void printTree() 
@@ -201,11 +260,13 @@ void printTree()
 	
 	STEP = SCRN_WIDTH/theTree->height; 
 
-	if (STEP>9)
+	if (STEP > 9)
 		STEP = 9; 
 
 	printf("\n");
-	printWell(theTree->right, OFFSET+STEP); 
+
+	struct node *root = theTree;
+	printWell(root->right, OFFSET+STEP); 
 	printf("START -> %d\n", theTree->key); 
-	printWell(theTree->left, OFFSET+STEP);
+	printWell(root->left, OFFSET+STEP);
 }
