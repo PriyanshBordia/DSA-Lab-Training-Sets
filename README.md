@@ -9,7 +9,7 @@ Point mistakes and let me know if major - 19ucs257@lnmiit.ac.in
 
 To run code, follow the instructions:
 ```
-git clone 
+git clone https://github.com/PriyanshBordia/DSA-Lab-Training-Sets.git
 cd DSA-Lab-Training-Sets/T*trainingSetNumber*
 gcc *file containing main functon* *file containing other functions* -o sol
 ./sol
