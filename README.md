@@ -11,7 +11,7 @@ To run code, follow the instructions:
 ```
 git clone https://github.com/PriyanshBordia/DSA-Lab-Training-Sets.git
 
-cd DSA-Lab-Training-Sets/T*trainingSetNumber*
+cd DSA-Lab-Training-Sets/T **trainingSetNumber**
 
 gcc *file containing main functon* *file containing other functions* -o sol
 
