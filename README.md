@@ -4,7 +4,7 @@
 
 Point mistakes and let me know if major - 19ucs257@lnmiit.ac.in
 
-> Find repository at https://priyanshbordia.github.io/DSA-Lab-Training-Sets/
+> Find repository at [@](https://priyanshbordia.github.io/DSA-Lab-Training-Sets/)
 
 To run code, follow the instructions:
 ```
