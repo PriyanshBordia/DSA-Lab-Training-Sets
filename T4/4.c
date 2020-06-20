@@ -34,7 +34,6 @@ int main(void)
 		insertChair(name);
 		
 		fgets(tmp, 100, playerF);
-		// printf("Adding %s\n", name);
 	}
 
 	printf("\nAll palyers are in their chairs now. Game begins\n\n");

@@ -40,8 +40,7 @@ struct token
 int main()
 {
 	stack[++top] = '#';
-	// printf("______________________________________________________\n");
-	// printf("Enter valid infix exp: ");
+	printf("Enter valid Infix Exp: ");
 	fgets(expr, 99, stdin);
 
 	struct token token;
@@ -74,18 +73,17 @@ int main()
 			printf("Invalid Input!!");
 			exit(0);
 		}
+		
 		token = getNextToken();
 	}
 
 	postfix[++count] = '\0';
-	// display();
 	printf("\n");
 	return 0;
 }
 
 void pop()
 {
-	char c;
 	while (stack[top] != LPAR)
 		printf("%c ", stack[top--]);
 
@@ -121,6 +119,7 @@ struct token getNextToken()
 		token.kind = INT;
 		skipDigits();
 	}
+
 	else
 	{
 		token.kind = expr[where];

@@ -32,7 +32,7 @@ void evaluate(char ch);
 
 int main()
 {
-	// printf("Enter Postfix Exp: ");
+	printf("Enter Postfix Exp: ");
 	fgets(expr, 99, stdin);
 
 	struct token token;
@@ -41,10 +41,8 @@ int main()
 
 	while (token.kind != FINISH) 
 	{
-		// printf("%c", token.kind); 
 		if (token.kind == INT)
 		{
-			// printf(" %d\n", token.value); 
 			push(token.value);
 		}
 
@@ -54,7 +52,6 @@ int main()
 		}
 		
 		token = getNextToken();
-		// printf("Top: %d\n", stack[top]); 			// check for top most element of stack 
 	}
 
 	printf("Ans: %d\n", stack[top]);
@@ -133,6 +130,4 @@ void evaluate(char ch)
 
 	int val = calculate(op1, op2, ch);
 	push(val);
-
-
 }

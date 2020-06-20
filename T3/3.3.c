@@ -10,10 +10,6 @@ int main()
 	filePointer = fopen("copy.c", "r");
 
 	assert (filePointer != NULL);
-	/*{
-		printf("File unavailable!!");
-		exit(0);
-	}*/
 
 	{
 		while ((ch = fgetc(filePointer)) != EOF)

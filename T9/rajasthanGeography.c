@@ -9,17 +9,20 @@ struct town *makeTown(char *name)
 
 	if (tn == NULL || towns == TOWNS) 
 	{
-            return NULL;
-    }
+		return NULL;
+	}
 	
 	townships[towns] = tn;
+
 	tn->name = malloc(strlen(name)+1); 
+	
 	strcpy(tn->name, name);
 	
 	tn->edges = NULL;
 	tn->townIdx = towns++; 
 	tn->finalisedDist = 0; 
 	tn->distance = INT_MAX/TOWNS; 
+	
 	return tn;
 }
 
@@ -30,8 +33,8 @@ struct town *getTown(char *name)
 	for (i= 0; i < towns; i++)
 		if (strcmp(townships[i]->name, name) == 0) 
 			return townships[i];
-    
-    return NULL;
+	
+	return NULL;
 }
 
 /* Get name for TOWN */
@@ -60,7 +63,7 @@ struct town *getOtherTown(struct town *here, struct link *road)
 		return townships[road->highIdx];
 
 	else
-        return NULL;
+		return NULL;
 }
 
 /* Get name of town connected to HERE by ROAD */
@@ -111,8 +114,8 @@ static struct link *insertLink(struct town *town1, struct town *town2)
 		link->nxtLowEdge = town1->edges; 
 		town1->edges = link;
 	}
-      
-   	return link;
+	  
+	return link;
 }
 
 void linkTowns(char *thisTown, char *thatTown, int distance) 

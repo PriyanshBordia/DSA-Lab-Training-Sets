@@ -26,7 +26,7 @@ int main(void)
     struct token token;
 	int i;
 	
-	printf("Input expression:"); 
+	printf("Input expression: "); 
 	fgets(expr, 99, stdin);
 
 	token = getNextToken();

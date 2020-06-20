@@ -1,4 +1,10 @@
-#include "stack.c"
+//Priyansh Bordia
+//19UCS257
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
 
 #define LPAR '('
 #define RPAR ')'
