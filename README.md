@@ -1,8 +1,11 @@
  # DSA Lab Training Set Solutions
 
-#### Reference to solutions to Training Sets.
+[![CodeFactor](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets/badge)](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets)
 
-> Find repository at [@](https://priyanshbordia.github.io/DSA-Lab-Training-Sets/)
+
+#### Reference for solutions to Training Sets.
+
+> Find repository [here](https://priyanshbordia.github.io/DSA-Lab-Training-Sets/).
 
 To run code, follow the instructions:
 ```
@@ -15,5 +18,5 @@ gcc [file containing main] [functon file containing other functions] -o sol
 ./sol
 ```
 
-Point mistakes and let me know if major at [E-mail](19ucs257@lnmiit.ac.in)
+Point mistakes and let me know if major at [E-mail](mailto::"19ucs257@lnmiit.ac.in")
 
