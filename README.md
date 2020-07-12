@@ -18,5 +18,5 @@ gcc [file containing main] [functon file containing other functions] -o sol
 ./sol
 ```
 
-Point mistakes and let me know if major at [E-mail](mailto::"19ucs257@lnmiit.ac.in")
+Point mistakes and let me know if major at [E-mail](mailto:19ucs257@lnmiit.ac.in)
 
