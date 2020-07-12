@@ -2,12 +2,9 @@
 
 [![CodeFactor](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets/badge)](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets)
 
-
-#### Reference for solutions to Training Sets.
-
 > Find repository [here](https://priyanshbordia.github.io/DSA-Lab-Training-Sets/).
 
-To run code, follow the instructions:
+#### To run code, follow the instructions:
 ```
 git clone https://github.com/PriyanshBordia/DSA-Lab-Training-Sets.git
 
