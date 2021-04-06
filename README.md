@@ -1,7 +1,5 @@
  # DSA Lab Training Set Solutions
 
-[![CodeFactor](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets/badge)](https://www.codefactor.io/repository/github/priyanshbordia/dsa-lab-training-sets)
-
 > Find repository [here](https://priyanshbordia.github.io/DSA-Lab-Training-Sets/).
 
 #### To run code, follow the instructions:
